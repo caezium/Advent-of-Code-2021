@@ -1,0 +1,36 @@
+[int day=2; string name="Dive";]
+-----------------------------------------
+[int part=1;]
+-----------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+string p;
+int o,n=1000,h,d;
+int main(){
+	for(int i=1;i<=n;i++){
+		cin>>p>>o;
+		if(p=="forward")h+=o;
+		if(p=="up")d-=o;
+		if(p=="down")d+=o;
+	}
+	cout<<d*h;
+	return 0;
+}
+
+-----------------------------------------
+[int part=2;]
+-----------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+string p;
+int o,n=1000,h,d,a;
+int main(){
+	for(int i=1;i<=n;i++){
+		cin>>p>>o;
+		if(p=="forward")h+=o,d+=o*a;
+		if(p=="up")a-=o;
+		if(p=="down")a+=o;
+	}
+	cout<<d*h;
+	return 0;
+}
