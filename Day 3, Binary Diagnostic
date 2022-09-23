@@ -1,0 +1,41 @@
+[int day=3; string name="Binary Diagnostic";]
+--------------------------------------
+[int part=1;]
+--------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+long long n=1000,l=12,n1,n0,g,gs;
+string a[1005],s;
+long long dtob(long long n) {
+   long long d=0,b=1;
+   while (n) {
+      int l=n%10;
+      n/=10;
+      d+=l*b;
+      b=b*2;
+   }
+   return d;
+}
+int main(){
+	for(int i=1;i<=n;i++)cin>>a[i];
+	for(int i=0;i<l;i++){
+		n1=0;
+		n0=0;
+		for(int j=1;j<=n;j++){
+			s=a[j];
+			if(s[i]=='1')n1++;
+			else n0++;
+		}
+		if(n1>n0)g=g*10+1;
+		else g*=10;
+	}
+	
+	gs=dtob(g);
+
+	cout<<gs*(4095-gs);
+	return 0;
+}
+
+--------------------------------------
+[int part=2;]
+--------------------------------------
