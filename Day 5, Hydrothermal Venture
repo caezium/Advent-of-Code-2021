@@ -1,0 +1,51 @@
+[int day=5;string name="Hyrdrothermal Venture";]
+-------------------------------------------------------
+[int part=1;]
+-------------------------------------------------------
+#include<bits/stdc++.h>
+using namespace std;
+int n=500,cnt,x_1,x_2,y_1,y_2,vents[1000][1000];
+string s;
+int main(){
+	for(int k=1;k<=n;k++){
+		x_1=0,x_2=0,y_1=0,y_2=0;
+		cin>>s;
+		for(int i=0;i<s.size();i++){
+			if(s[i]==','){
+				for(int j=i+1;j<s.size();j++){
+					y_1=y_1*10+s[j]-'0';	
+				}
+				break;
+			}else x_1=x_1*10+s[i]-'0';	
+		}
+		cin>>s>>s;
+		for(int i=0;i<s.size();i++){
+			if(s[i]==','){
+				for(int j=i+1;j<s.size();j++){
+					y_2=y_2*10+s[j]-'0';	
+				}
+				break;
+			}else x_2=x_2*10+s[i]-'0';	
+		}
+		if(x_1!=x_2&&y_1!=y_2)continue;
+		if(x_1==x_2){
+			for(int i=min(y_1,y_2);i<=max(y_1,y_2);i++){
+				vents[x_1][i]++;
+			}
+		}else{
+			for(int i=min(x_1,x_2);i<=max(x_1,x_2);i++){
+				vents[i][y_1]++;
+			}
+		}
+	}
+	for(int i=0;i<1000;i++){
+		for(int j=0;j<1000;j++){
+			if(vents[i][j]>=2)cnt++;
+		}
+	}
+	cout<<cnt;
+	return 0;
+}
+-------------------------------------------------------
+[int part=2;]
+-------------------------------------------------------
